@@ -28,7 +28,7 @@ public class Algo {
 //                System.out.println("Saturation = " + color.getSaturation());
                 for (int i = 0; i < corresp.length; i++) {
 					// marge +-5
-                	if(corresp[i].getAverageValue() < color.getRed()) {
+                	if(corresp[i].getAverageValue() < color.getRed() + 5 && corresp[i].getAverageValue() > color.getRed() - 5) {
                 		
                 	}
 				}
