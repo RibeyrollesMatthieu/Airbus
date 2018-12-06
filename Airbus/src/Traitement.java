@@ -19,6 +19,10 @@ class Traitement {
 		this.listBW();
 	}
 	
+	Correspondance[] getList() {
+		return this.liste;
+	}
+	
 	Image getImage() {
 		return this.image;
 	}
