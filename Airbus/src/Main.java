@@ -1,3 +1,5 @@
+import java.io.File;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -16,11 +18,11 @@ public class Main extends Application {
 		this.scene = new Scene(this.root, 900., 900.);
 
 		this.stage.setScene(this.scene);
-		Image image = new Image("https://i0.wp.com/www.4ubodyfitness.com.au/wp-content/uploads/2017/01/You-can-do-it-.jpg?ssl=1\"");
-		Traitement t = new Traitement(image);
 		
-		t.setAsBW();
-		ImageView av = new ImageView(t.getImage());		
+		File dossier = new File("src/images");
+		String[] images = dossier.list();
+		
+		ImageView av= new ImageView(new Image("images/" + images[150]));
 
 		this.root.getChildren().add(av);
 		this.stage.show();
