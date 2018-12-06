@@ -18,7 +18,7 @@ public class Main extends Application{
 		this.scene = new Scene(this.root, 900, 700);
 		
 		this.iv = new ImageView(this.lena);
-		System.out.println("yoyoyyyo");
+		System.out.println("yoyoyyo");
 		this.setup();
 		stage.setScene(this.scene);
 		stage.show();
