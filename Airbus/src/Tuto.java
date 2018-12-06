@@ -7,10 +7,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-public class Main extends Application{
+public class Tuto extends Application{
 	private Scene scene;
 	private Pane root;
-	private Image lena = new Image("images/Lena.png");
+	private Image lena = new Image("https://cdn-media.rtl.fr/cache/ahUtr5Tk5Zyz_-yI7J0Zfw/880v587-0/online/image/2018/1003/7795024265_000-19p7gy.jpg");
 	private ImageView iv;
 	
 	public void start(Stage stage) {
