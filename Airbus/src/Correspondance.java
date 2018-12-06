@@ -1,19 +1,17 @@
-import javafx.scene.image.Image;
-
 public class Correspondance {
-	private Image image;
+	private String image;
 	private int averageValue;
 	
-	public Correspondance(Image img, int val) {
+	public Correspondance(String img, int val) {
 		this.image = img;
 		this.averageValue = val;
 	}
 
-	public Image getImage() {
+	public String getImage() {
 		return image;
 	}
 
-	public void setImage(Image image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 
