@@ -16,6 +16,10 @@ class Traitement {
 	
 	// resize
 
+	void resize() {
+		
+	}
+	
 	// Return black and white image
 	void setAsBW () {
 		int width = (int)(this.image.getWidth());
