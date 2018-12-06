@@ -8,15 +8,21 @@ import javafx.scene.paint.Color;
 class Traitement {
 	private Image image;
 	private Correspondance[] liste;
-	private File dossier = new File("src/images");
-	private String[] images = dossier.list();
+	private File dossier;
+	private String[] images;
 	
 	Traitement(Image image) {
 		this.image = image;
+		this.dossier = new File("src/images");
+		this.images = this.dossier.list();
 		this.liste = new Correspondance[this.images.length];
 		
 		this.setAsBW();
 		this.listBW();
+		
+//		for (int i = 0; i < this.liste.length; i++) {
+//			System.out.println(this.liste[i]);
+//		}
 	}
 	
 	Correspondance[] getList() {
@@ -43,10 +49,10 @@ class Traitement {
 	}
 	
 	void listBW() {
-		for (int i = 0; i < images.length; i ++) {
+		for (int i = 100; i < this.images.length; i ++) {
 			System.out.println(images[i]);
-			Image image = new Image("images/" + images[i]);
-			
+			Image image = new Image("images/" + images[i]);	
+			System.out.println(image.getWidth());
 			image = setAsBW(image);			
 			
 			this.liste[i] = new Correspondance(images[i], moyenneGris(image));
@@ -77,7 +83,6 @@ class Traitement {
 	void setAsBW () {
 		int width = (int)(this.image.getWidth());
 		int height = (int)(this.image.getHeight());
-
 		WritableImage toReturn = new WritableImage(width, height);
 		PixelWriter pw = toReturn.getPixelWriter();
 		
