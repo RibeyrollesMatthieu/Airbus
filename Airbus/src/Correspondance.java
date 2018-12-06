@@ -1,7 +1,6 @@
 import javafx.scene.image.Image;
 
 public class Correspondance {
-	
 	private Image image;
 	private int averageValue;
 	
