@@ -16,13 +16,12 @@ public class Main extends Application {
 		this.scene = new Scene(this.root, 900., 900.);
 
 		this.stage.setScene(this.scene);
-		Image image = new Image("https://i0.wp.com/www.4ubodyfitness.com.au/wp-content/uploads/2017/01/You-can-do-it-.jpg?ssl=1\"");
-		Traitement t = new Traitement(image);
-		
-		t.setAsBW();
-		ImageView av = new ImageView(t.getImage());		
+//		Image image = new Image("images/autumn-84714__340.jpg");
+//		Traitement t = new Traitement(image);
+//		ImageView av = new ImageView(t.getImage());		
+//		ImageView av = new ImageView(image);
 
-		this.root.getChildren().add(av);
+//		this.root.getChildren().add(av);
 		this.stage.show();
 	}
 	
