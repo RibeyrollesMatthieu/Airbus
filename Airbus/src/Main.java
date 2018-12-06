@@ -7,7 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-public class maino extends Application{
+public class Main extends Application{
 	private Scene scene;
 	private Pane root;
 	private Image lena = new Image("images/Lena.png");
@@ -18,7 +18,7 @@ public class maino extends Application{
 		this.scene = new Scene(this.root, 900, 700);
 		
 		this.iv = new ImageView(this.lena);
-		System.out.println("yoyoyyyo");
+		System.out.println("yoyoyyo");
 		this.setup();
 		stage.setScene(this.scene);
 		stage.show();
