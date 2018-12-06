@@ -19,12 +19,11 @@ public class Main extends Application {
 
 		this.stage.setScene(this.scene);
 		
-		File dossier = new File("src/images");
-		String[] images = dossier.list();
+		Image image = new Image("imagelune/lune.png"); 
 		
-		ImageView av= new ImageView(new Image("images/" + images[150]));
-
-		this.root.getChildren().add(av);
+		Traitement t = new Traitement(image);
+		
+//		this.root.getChildren().add(av);
 		this.stage.show();
 	}
 	
