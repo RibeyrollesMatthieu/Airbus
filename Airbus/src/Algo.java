@@ -3,6 +3,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashSet;
 
 import javax.imageio.ImageIO;
 
@@ -14,7 +15,7 @@ public class Algo {
 
 	final static int SMALLIMAGESIZE = 480;
 
-	public Image createImage(Image img, Correspondance[] corresp) throws IOException {
+	public void createImage(Image img, Correspondance[] corresp) throws IOException {
 		
 		Image baseBW = new Traitement(img).getImage();	// Transforme l'image en noir et blanc
 //		ImageView baseIV = new ImageView(baseBW);
@@ -23,11 +24,7 @@ public class Algo {
 		
 		PixelReader pixelReader = baseBW.getPixelReader();
 		
-		BufferedImage result = new BufferedImage(
-				baseBWWidth * SMALLIMAGESIZE,
-				baseBWHeight * SMALLIMAGESIZE,
-				BufferedImage.TYPE_INT_RGB
-				);
+		BufferedImage result = new BufferedImage(baseBWWidth * SMALLIMAGESIZE, baseBWHeight * SMALLIMAGESIZE, BufferedImage.TYPE_INT_RGB);
 		Graphics g = result.getGraphics();
 		
 		int x = 0;
@@ -39,7 +36,7 @@ public class Algo {
                 boolean find = false;
                 for (int i = 0; i < corresp.length && !find; i++) {
                 	if(corresp[i].getAverageValue() < color.getRed() + 5 && corresp[i].getAverageValue() > color.getRed() - 5) { // Marge +-5
-                		BufferedImage bi = ImageIO.read(new File(corresp[i].getImage()));
+                		BufferedImage bi = toGray(ImageIO.read(new File(corresp[i].getImage())));
                 		g.drawImage(bi, x, y, null);
 	            		x += SMALLIMAGESIZE;
 	            		if(x > result.getWidth()){
@@ -57,8 +54,30 @@ public class Algo {
                 }
             }
         }
-		ImageIO.write(result,"png",new File("result.png"));
-		return new Image("result.png");
+		ImageIO.write(result, "png", new File("result.png"));
+//		return new Image("result.png");
+	}
+	
+	private BufferedImage toGray(BufferedImage img) {
+		try {
+            BufferedImage gray = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_BYTE_GRAY );
+
+            Graphics2D g = gray.createGraphics();
+            g.drawImage(img, 0, 0, null);
+
+            HashSet<Integer> colors = new HashSet<>();
+            int color = 0;
+            for (int y = 0; y < gray.getHeight(); y++) {
+                for (int x = 0; x < gray.getWidth(); x++) {
+                    color = gray.getRGB(x, y);
+                    colors.add(color);
+                }
+            }
+    		return gray;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+		return null;
 	}
 	
 }
