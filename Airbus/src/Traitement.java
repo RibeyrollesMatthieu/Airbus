@@ -7,6 +7,7 @@ class Traitement {
 	private Image image;
 	
 	Traitement(Image image) {
+		this.setAsBW();
 		this.image = image;
 	}
 	
