@@ -13,7 +13,7 @@ import javafx.scene.paint.Color;
 
 public class Algo {
 
-	final static int SMALLIMAGESIZE = 480;
+	final static int SMALLIMAGESIZE = 10;
 
 	public void createImage(Image img, Correspondance[] corresp) throws IOException {
 		
@@ -23,6 +23,9 @@ public class Algo {
 		int baseBWWidth = (int) baseBW.getWidth();
 		
 		PixelReader pixelReader = baseBW.getPixelReader();
+		
+		System.out.println(baseBW.getHeight() + "|" + baseBWHeight + "|" + baseBWHeight * SMALLIMAGESIZE);
+		System.out.println(baseBW.getWidth() + "|" + baseBWWidth + "|" + baseBWWidth * SMALLIMAGESIZE);
 		
 		BufferedImage result = new BufferedImage(baseBWWidth * SMALLIMAGESIZE, baseBWHeight * SMALLIMAGESIZE, BufferedImage.TYPE_INT_RGB);
 		Graphics g = result.getGraphics();
@@ -35,6 +38,7 @@ public class Algo {
                 Color color = pixelReader.getColor(readX, readY);
                 boolean find = false;
                 for (int i = 0; i < corresp.length && !find; i++) {
+                	System.out.println(corresp[i]);
                 	if(corresp[i].getAverageValue() < color.getRed() + 5 && corresp[i].getAverageValue() > color.getRed() - 5) { // Marge +-5
                 		BufferedImage bi = toGray(ImageIO.read(new File(corresp[i].getImage())));
                 		g.drawImage(bi, x, y, null);
