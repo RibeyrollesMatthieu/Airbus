@@ -2,7 +2,7 @@ import javafx.scene.image.Image;
 
 public class Algo {
 	
-	public Image createImage() {
+	public Image createImage(Image baseImg) {
 		
 		
 		
