@@ -19,10 +19,6 @@ class Traitement {
 		
 		this.setAsBW();
 		this.listBW();
-		
-//		for (int i = 0; i < this.liste.length; i++) {
-//			System.out.println(this.liste[i]);
-//		}
 	}
 	
 	Correspondance[] getList() {
@@ -33,29 +29,15 @@ class Traitement {
 		return this.image;
 	}
 	
-	// resize
-
 	int moyenneGris(Image image) {
 		int somme = 0;
 		for (int i = 0; i < image.getWidth(); i ++) {
 			for (int j = 0; j < image.getHeight(); j ++) {
-				somme += image.getPixelReader().getColor(i, j).getRed()*255.;
+				somme += image.getPixelReader().getColor(i, j).getRed() * 255.;
 			}
 		}
-		
 		somme /= (image.getWidth() * image.getHeight());
-		
 		return somme;
-	}
-	
-	void listBW() {
-		for (int i = 0; i < this.images.length; i ++) {
-			Image image = new Image("images/" + images[i]);	
-			image = setAsBW(image);			
-
-			this.liste[i] = new Correspondance(images[i], moyenneGris(image));
-			System.out.println(this.liste[i]);
-		}
 	}
 	
 	Image setAsBW (Image image) {
@@ -97,5 +79,14 @@ class Traitement {
 		}
 		
 		this.image = toReturn;
+	}
+	
+	void listBW() {
+		for (int i = 0; i < this.images.length; i ++) {
+			Image image = new Image("images/" + images[i]);
+			image = setAsBW(image);			
+
+			this.liste[i] = new Correspondance(images[i], moyenneGris(image));
+		}
 	}
 }
