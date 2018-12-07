@@ -24,8 +24,8 @@ public class Algo {
 		
 		PixelReader pixelReader = baseBW.getPixelReader();
 		
-		System.out.println(baseBW.getHeight() + "|" + baseBWHeight + "|" + baseBWHeight * SMALLIMAGESIZE);
-		System.out.println(baseBW.getWidth() + "|" + baseBWWidth + "|" + baseBWWidth * SMALLIMAGESIZE);
+//		System.out.println(baseBW.getHeight() + "|" + baseBWHeight + "|" + baseBWHeight * SMALLIMAGESIZE);
+//		System.out.println(baseBW.getWidth() + "|" + baseBWWidth + "|" + baseBWWidth * SMALLIMAGESIZE);
 		
 		BufferedImage result = new BufferedImage(baseBWWidth * SMALLIMAGESIZE, baseBWHeight * SMALLIMAGESIZE, BufferedImage.TYPE_INT_RGB);
 		Graphics g = result.getGraphics();
