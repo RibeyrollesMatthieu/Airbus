@@ -49,13 +49,12 @@ class Traitement {
 	}
 	
 	void listBW() {
-		for (int i = 100; i < this.images.length; i ++) {
-			System.out.println(images[i]);
+		for (int i = 0; i < this.images.length; i ++) {
 			Image image = new Image("images/" + images[i]);	
-			System.out.println(image.getWidth());
 			image = setAsBW(image);			
-			
+
 			this.liste[i] = new Correspondance(images[i], moyenneGris(image));
+			System.out.println(this.liste[i]);
 		}
 	}
 	
